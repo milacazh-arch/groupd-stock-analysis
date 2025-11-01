@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  groupd-stock-analysis:
+    build: .
+    ports:
+      - "5001:5001"
+    environment:
+      - TUSHARE_TOKEN=${TUSHARE_TOKEN}
+      - FLASK_ENV=production
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
